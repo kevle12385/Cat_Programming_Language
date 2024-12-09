@@ -1,0 +1,25 @@
+Meow i = 0
+
+mew i < 101 {
+    purr i % 15 == 0 {
+        meh "FizzBuzz"
+    }
+
+    hiss { 
+        purr i % 3 == 0 {
+            meh "Fizz"
+        } 
+
+        hiss {
+            purr i % 5 == 0 {
+                meh "Buzz"
+
+            } 
+
+            hiss {
+                meh i
+            }
+        }
+    }
+    i = i + 1
+}

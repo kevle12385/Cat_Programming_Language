@@ -1,0 +1,9 @@
+
+Meow cat = 7
+Meow dog = 8
+
+purr cat == dog {
+    meh "true."
+} hiss {
+    meh "false"
+}
