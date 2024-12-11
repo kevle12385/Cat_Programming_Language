@@ -1,0 +1,75 @@
+Program:
+    statements*=Statement;
+
+
+Statement:
+    VariableDeclaration | Assignment | ForLoopFLEX | ForLoop | WhileLoop | IfCondition | PrintStatement | Expression 
+;
+
+Condition:
+    left=Expression comparator=Comparator right=Expression
+;
+
+WhileLoop:
+    'mew' condition=Condition '{' statements*=Statement '}'
+;
+
+ForLoop:
+    'lays down at' valueSTART =Expression 'gets up at' valueEND=Expression '{' statements*=Statement '}'
+;
+
+ForLoopFLEX:
+    'lays down at' valueSTART =Expression 'gets up at but is hungry but is also tired' valueEND=Expression '{' statements*=Statement '}'
+;
+
+
+VariableDeclaration:
+    'Meow' name=ID ( '=' value=Expression | 'purs' value_STRING=STRING 'purs' | 'hungry' value_BOOL=BOOL 'hungry')?
+;
+
+
+Assignment:
+    name=ID ( '=' value=Expression | 'purs' value_STRING=STRING 'purs' | 'hungry' value_BOOL=BOOL 'hungry' )
+;
+
+
+
+IfCondition:
+    'purr' condition=Condition '{' statements*=Statement '}'
+    ('hiss' '{' else_statements*=Statement '}')?
+;
+
+
+
+
+Expression:
+    left=Term (operator=AddSub right=Term)*;
+
+Term:
+    left=Factor (operator=MulDivMod right=Factor)*;
+
+Factor:
+    INT | ID | '(' Expression ')' | STRING
+;
+
+
+
+PrintStatement:
+    'meh' (value=STRING | value= Expression)
+;
+
+AddSub:
+    '+' | '-'
+;
+
+MulDivMod:
+    '*' | '/' | '%'
+;
+
+Comparator:
+    '==' | '!=' | '<' | '>' 
+;
+
+Comment:
+  /\/\/.*$/
+;
